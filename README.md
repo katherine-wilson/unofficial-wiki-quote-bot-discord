@@ -19,7 +19,7 @@ Using Discord to try out this bot is very straight-forward. All you need is a Di
 ### &nbsp;&nbsp;&nbsp;Steps:
 <ol> 
   <li>Use this link to invite the <b>WikiQuote Bot</b> to your server: <a href=https://discord.com/api/oauth2/authorize?client_id=980643350044614759&permissions=116800&scope=bot title="Invite WikiQuote Bot">Invite Link</a></li>
-  <li>Select the server you plan on adding the bot to from the dropdown menu. After clicking continue, authorize the bot.</li>
+  <li>Select the server you plan on adding the bot to from the dropdown menu. After clicking continue, make sure the bot is authorized.</li>
   <li>The bot is ready for use in the server as long as it's online.</li>
 </ol>
 
