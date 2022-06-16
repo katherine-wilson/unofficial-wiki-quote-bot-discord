@@ -55,14 +55,14 @@ At the moment, this bot supports the use of 3 different commands.
   <li><b>Help</b><br>
          The <code>!wq help</code> command is used to retrieve the list of valid commands that this bot will respond to. When this command is sent to a text channel that the bot has access to, the bot will privately message an <a href=https://discordjs.guide/popular-topics/embeds.html#embed-preview>embed</a> to the user that sent the command. The received embed contains a list of commands and a brief description of each.
   <p align="center">
-    <img src=https://user-images.githubusercontent.com/106413749/173964283-77683b5c-73a4-41d0-ae7f-aed22569a5dd.PNG>
+    <img src=https://user-images.githubusercontent.com/106413749/173964283-77683b5c-73a4-41d0-ae7f-aed22569a5dd.PNG width=632 height=229>
   </p>
   </li>
   
   <li><b>Info</b><br>
          The <code>!wq info</code> command is used to receive information about this bot. When this command is sent to a text channel that the bot has access to, the bot will privately message an <a href=https://discordjs.guide/popular-topics/embeds.html#embed-preview>embed</a> to the user that requested the information. The received embed contains a brief description of this bot's purpose and links the user to this GitHub repo.
   <p align="center">
-    <img src=https://user-images.githubusercontent.com/106413749/173963756-46d5cef3-9a2d-4e96-837e-b8e9d97de587.PNG>
+    <img src=https://user-images.githubusercontent.com/106413749/173963756-46d5cef3-9a2d-4e96-837e-b8e9d97de587.PNG width=631 height=205>
   </p>
   </li>
 
@@ -70,7 +70,7 @@ At the moment, this bot supports the use of 3 different commands.
          The <code>!wq search [query]</code> command is used to invoke this bot's main functionality: searching WikiQuote for a random quote related to the given query. The query should either be a person (full name) or a topic (ex. "motivation"). If a page exists for the given query on the WikiQuote site, a random quote will be chosen from it and sent to the channel that the command was originally sent in. Should the page not exist or be of an unsupported format, a message will be sent to the user informing them that there was an error. Although WikiQuote has quotes for many different types of media such as films, this bot currently only supports pages designed for people and topics.  
       
   <p align="center">
-    <img src=https://user-images.githubusercontent.com/106413749/173971806-7952ccee-fc98-4c4d-871e-c66dfebdd1e4.png>
+    <img src=https://user-images.githubusercontent.com/106413749/173971806-7952ccee-fc98-4c4d-871e-c66dfebdd1e4.png width=838 height=155>
   </p>
   </li>
   
