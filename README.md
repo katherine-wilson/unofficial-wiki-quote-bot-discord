@@ -6,7 +6,7 @@ This bot was built for use on the [Discord](https://discord.com/) social platfor
 - [Setup](#how-to-set-up-this-bot)
   - [Inviting the default instance through Discord](#through-discord)
   - [Hosting this bot yourself](#running-it-yourself)
-- [Using this bot](#how-to-use-this-bot)
+- [Commands](#how-to-use-this-bot)
 - [How this bot works](#how-this-bot-works)
 - [References](#references)
 
