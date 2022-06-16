@@ -8,8 +8,8 @@
  * @author Katherine Wilson
  *
  * Dependencies:
- * 		- .env file 		- Contains "TOKEN", the unique code for accessing the Discord bot
- *		- wq_search.js file	- Contains classes for the WikiQuote "search engine"
+ * 	- .env file 		- Contains "TOKEN", the unique code for accessing the Discord bot
+ *	- wq_search.js file	- Contains classes for the WikiQuote "search engine"
  *  	- dotenv    		- Package for loading environmental variables
  *  	- discord.js		- Module that enables interactions with the Discord API
  *
