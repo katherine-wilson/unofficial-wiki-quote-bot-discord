@@ -8,6 +8,7 @@ This bot was built for use on the [Discord](https://discord.com/) social platfor
   - [Hosting this bot yourself](#running-it-yourself)
 - [Commands](#how-to-use-this-bot)
 - [How this bot works](#how-this-bot-works)
+- [Limitations](#limitations)
 - [References](#references)
 
 
