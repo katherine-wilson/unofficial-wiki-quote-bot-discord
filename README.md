@@ -67,7 +67,7 @@ At the moment, this bot supports the use of 3 different commands.
   </li>
 
   <li><b>Search</b><br>
-         The <code>!wq search [query]</code> command is used to invoke this bot's main functionality: searching WikiQuote for a random quote related to the given query. The query should either be a person (full name) or a topic (ex. "motivation"). If a page exists for the given query on the WikiQuote site, a random quote will be chosen from it and sent to the channel that the command was originally sent in. Should the page not exist or be of an unsupported format, a message will be sent to the user informing them that there was an error. Although WikiQuote has quotes for many different types of media such as films, this bot currently only supports pages designed for people and topics.  
+         The <code>!wq search [query]</code> command is used to invoke this bot's main functionality: searching WikiQuote for a random quote related to the given query. The query should either be a person (full name) or a topic (ex. "motivation"). If a page exists for the given query on the WikiQuote site, a random quote will be chosen from it and sent to the channel that the command was originally sent in. Should the page not exist or be of an unsupported format, a message will be sent to the user informing them that there was an error. Although WikiQuote has quotes for many different types of media (films, people, musicals, etc.), this bot currently only supports pages designed for people and topics.  
       
   <p align="center">
     <img src=https://user-images.githubusercontent.com/106413749/173971806-7952ccee-fc98-4c4d-871e-c66dfebdd1e4.png width=838 height=155>
