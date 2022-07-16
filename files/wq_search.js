@@ -258,7 +258,7 @@ class WikiQuoteSearch {
 								ulDepth += ulStarts.length;
 							}
 							
-							// removes HTML tags from the quote and adds it to the array of quote 
+							// removes HTML tags from the quote and adds it to the array of quotes
 							if (ulDepth == 1) {	
 								let quote = line.replace(/<br \/>/g, "\n").replace(/\s{2,}/g, " ").replace(/[”"“]/g, "'");					// replaces line breaks with \n, removes extra spaces, replaces " with '
 								quote = quote.replace(/<\/?[^>]+(>|$)/g, "")																// removes html tags-- regex source: http://javascript.internet.com/snippets/remove-html-tags.html
