@@ -49,14 +49,23 @@ class Node {
  * Wrapper class for a fixed-capacity doubly-linked list to be used with a map in a cache. 
  * Keeps track of the head of the list, the tail of the list, and the size of the list.
  * New nodes can only be added to the head of the list. When the capacity of this list
- * (50) is reached, the tail node will be discarded with each node added. If a node is
- * accessed, it should be sent to the front of this linked list using sendToHead().
+ * is reached, the tail node will be discarded with each node added. If a node is accessed,
+ * it should be sent to the front of this linked list using sendToHead().
  */
 class LinkedList {
-	head = null;				// first element in LL
-	tail = null;				// last element in LL
-	capacity = 50;				// max # of elements the LL can store (discards tail when limit reached)
-	size = 0;					// # of elements currently in LL
+	head = null;					// first element in LL
+	tail = null;					// last element in LL
+	size = 0;						// # of elements currently in LL
+	
+	/**
+	 * Constructs a doubly-linked list with a node capacity equal
+	 * to the value passed in to this constructor.
+	 *
+	 * @param {number} capacity Maximum number of nodes that can be stored in this linked list
+	 */
+	constructor(capacity) {
+		this.capacity = capacity;	// max # of elements the LL can store (discards tail when limit reached)
+	}
 	
 	/**
 	 * Adds a node to the front of this linked list. If the
@@ -128,10 +137,10 @@ class LinkedList {
  */
 class Cache {
 	#map = new Map();				// maps queries to linked list nodes that store results
-	#list = new LinkedList();		// list of nodes that store web results and are labelled with their query
+	#list = new LinkedList(50);		// list of up to 50 nodes that store web results and are labelled with their query
 	
 	/**
-	 * Retrieves the results of the given query if it's store	d in
+	 * Retrieves the results of the given query if it's stored in
 	 * the cache. 
 	 *
 	 * @param {string} query Search query associated with the results
@@ -157,7 +166,7 @@ class Cache {
 		// creates and adds LL node to cache's LL
 		let newNode = new Node(query.toUpperCase(), results);
 		let removed = this.#list.addHead(newNode);
-		if 	(removed != null) {
+		if (removed != null) {
 			this.#map.delete(removed.label);		// deletes the removed LL node from the map	
 		}
 		
@@ -180,7 +189,6 @@ class SearchEngine {
 	 * that the given Discord message object was sent in.
 	 * 
 	 * @name sendQuote
-	 * @function
 	 * @param {Object} msg Message sent by the user containing the query
 	 * @param {String[]} quotes List of possible quotes to be sent to the user
 	 */
@@ -190,8 +198,8 @@ class SearchEngine {
 	 * and runs the provided function afterwards.
 	 * 
 	 * @param {Object} msg Discord Message sent by the user containing the query.
-	 * @param {sendQuote} sendQuote Function that handles Discord output to the user
-	 *								upon completion of the search.
+	 * @param {function(Object, string[])} sendQuote Function that handles Discord output to the user
+	 *												 upon completion of the search.
 	 */
 	lookup(msg, sendQuote) {
 		let quotes = this.#cache.retrieve(msg.content);
@@ -263,7 +271,7 @@ class SearchEngine {
 								let quote = line.replace(/<br \/>/g, "\n").replace(/\s{2,}/g, " ").replace(/[”"“]/g, "'");					// replaces line breaks with \n, removes extra spaces, replaces " with '
 								quote = quote.replace(/<\/?[^>]+(>|$)/g, "")																// removes html tags-- regex source: http://javascript.internet.com/snippets/remove-html-tags.html
 								quote = quote.replace("&#8212;", "--").replace("&#160;", " ").replace("&#8205;", "").replace("&amp;", "&");	// replaces misc chars
-								if (quote.length != 0) {
+								if (quote.length != 0 && quote.length <= 2000) {	// Discord messages cannot be longer than 2000 chars
 									quotes.push(quote);
 								}
 							}
