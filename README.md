@@ -39,7 +39,7 @@ Using Discord to try out this bot is very straight-forward. All you need is a Di
 ## Running It Yourself
 Setting up your own version of this bot will be a little more complicated than following the steps above to use mine. This involves utilizing Discord's [Developer Portal](https://discord.com/developers/applications/) to register an application for the bot. I found this [guide](https://beebom.com/how-make-discord-bot/) to be particularly helpful for this process.
 
-Almost all files necessary for creating a replica of this bot can be found in the "files" folder. Once you have set up the bot application through the Developer Portal, you must link it to the program files using your application's unique token. 
+Almost all files necessary for creating a replica of this bot can be found in the "files" folder of this repo. Once you have set up the bot application through the Developer Portal, you must link it to the program files using your application's unique token. 
 
 Please note that in addition to the files provided by this repo, you will have to create an additional file for environmental variables in order to link the code to Discord. This is used to store the aforementioned token, which acts as a unique identifier for the Discord application you are creating. This token should be stored as an environmental variable in a file titled ".env". The contents of the file should follow the format below:<br>
 <p align="center">
