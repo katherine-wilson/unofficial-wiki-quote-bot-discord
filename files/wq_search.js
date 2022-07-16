@@ -172,7 +172,7 @@ class Cache {
  * based on the given Discord message object. This class utilizes a LRU
  * cache to quickly retrieve quotes that have been searched for before.
  */
-class WikiQuoteSearch {
+class SearchEngine {
 	#cache = new Cache();		// LRU cache that stores previously-searched-for quotes
 	
 	/**
@@ -296,4 +296,4 @@ class WikiQuoteSearch {
 
 
 // EXPORTS:
-module.exports = { WikiQuoteSearch };
+module.exports = { SearchEngine };

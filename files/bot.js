@@ -8,8 +8,8 @@
  * @author Katherine Wilson
  *
  * Dependencies:
- * 	- .env file 		- Contains "TOKEN", the unique code for accessing the Discord bot
- *	- wq_search.js file	- Contains classes for the WikiQuote "search engine"
+ * 		- .env file 		- Contains "TOKEN", the unique code for accessing the Discord bot
+ *		- wq_search.js file	- Contains classes for the WikiQuote "search engine"
  *  	- dotenv    		- Package for loading environmental variables
  *  	- discord.js		- Module that enables interactions with the Discord API
  *
@@ -26,7 +26,7 @@
 require('dotenv').config();
 const Discord = require("discord.js");
 const wqSearch = require('./wq_search.js')
-const searchEngine = new wqSearch.WikiQuoteSearch();
+const searchEngine = new wqSearch.SearchEngine();
 startBot();
 
 /**
@@ -39,6 +39,7 @@ startBot();
 function startBot() {
 	const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
 	client.on("ready", () => {
+		client.user.setUsername("WikiQuote Bot");
 		console.log(`Logged in as ${client.user.tag}!`)
 		client.user.setActivity('speeches | !wq help', {type: "LISTENING"});
 	});
