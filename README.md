@@ -9,6 +9,8 @@ This bot was built for use on the [Discord](https://discord.com/) social platfor
 - [Commands](#how-to-use-this-bot)
 - [How this bot works](#how-this-bot-works)
 - [Limitations](#limitations)
+- [Future](#future)
+- [Packages](#packages)
 - [References](#references)
 
 
@@ -79,6 +81,43 @@ At the moment, this bot supports the use of 3 different commands.
 
 # How This Bot Works
 
+### DISCORD API - 
+  - Connects this bot to Discord
+  - Processes the text content of every message in the Discord servers it's present in
+  - Checks if the content matches the given commands exactly
+### WEB SCRAPING + REGEX -
+  - WikiQuote URL is formed based on the Discord user's query
+      - The query is converted to title case, underscores are used to separate words, and appended to the end of this string: "https://en.wikiquote.org/wiki/"
+  - Request-Promise package is used to retrieve the HTML from that URL
+  - HTML is processed with Regular Expressions (Regex) to retrieve all of the quotes from that webpage
+      - This was the most difficult part of the project as WikiQuote doesn't use a clear-cut format for placing quotes on each of its pages. While scraping similar quotation sites such as [BrainyQuote](https://www.brainyquote.com/) would have been much more straight-forward and consistent, I wanted a challenge. After observing different pages across the site, I found that WikiQuote tends to store its quotes after an "h2" HTML tag (titled "Quotes" if the page is for a person and a single letter (A-Z) for pages about topics) in an unordered list (marked by "ul" HTML tags). Quotes are typically found at the first "level" of a nested unordered list (AKA the leftmost bullet point on the page visually). The subsequent nested unordered lists are typically used to provide sources, translations, etc.
+      - In order to extract these quotes, I used a variable titled "ulDepth" to track what level of unordered lists the function's "cursor" is currently scanning. When a "ul" tag is found, 1 is added to the depth, and when a "/ul" tag is found, 1 is subtracted from the depth. Any content found at a ulDepth of 1 will have its HTML tags removed and be added to the list of quotes gathered from that page. However, as previously mentioned, not all pages store quotes this way, so this method will not accurately scrape quotes off of every page (see the [Limitations](#limitations) section of this document).
+### LRU Cache + Linked Lists -
+  - Once quotes are found, this program stores them in an LRU cache. This cache was created using the following classes:
+    - Doubly-Linked List Node 
+    - Fixed-Capacity Doubly-Linked List Wrapper Class
+    - Cache (Linked List + Map)
+    - Search Engine (Cache + Methods that retrieve data from/add data to the cache)
+  - The UML Diagram below showcases the functionality of and relationships between these classes: 
+  
+  - The purpose of the LRU cache is to speed up the retrieval of quotes from sources that have been recently scraped. Rather than having to load and scrape a website's HTML every time a quote from the same page is retrieved, the search engine can retrieve its cached quotes in O(1)-O(50) time (the cache has a capacity of 50 pages). 
+
 # Limitations
+The biggest limiting factor of this small project was WikiQuote's inconsistent format across its open-collaboration platform. Because of this, there's no definitive way to scrape quotes from any page on the site with 100% accuracy. Sometimes sources and translations get mixed in with what's considered a "quote" by this bot as a result. This, unfortunately, limits the [future](#future) of this project as the types of pages not covered by the current version of this bot (ex. movies) tend to have even less consistency than the ones that have.
+
+# Future
+- Give users ability to resolve disambiguations (ex. pages like [this](https://en.wikiquote.org/wiki/John_Smith))
+- Broaden the "types" of pages this bot can scan (ex. video games, musicals, movies, etc.)
+- Cite sources for quotes (especially for topic pages that contain quotes from many authors)
+
+# Packages
+- [request-promise](https://www.npmjs.com/package/request-promise)
+- [discord.js](discord.js.org)
 
 # References
+- https://beebom.com/how-make-discord-bot/
+  - Discord Bot setup code
+- [http://javascript.internet.com/snippets/remove-html-tags.html](https://web.archive.org/web/20110923215741/http://javascript.internet.com:80/snippets/remove-html-tags.html)
+  - Source for Regex that removes HTML tags
+- https://www.interviewcake.com/concept/java/lru-cache
+  - Conceptual resource for building the LRU cache 
