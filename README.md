@@ -1,5 +1,5 @@
 # <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/300px-Wikiquote-logo.svg.png?20061124173848%27" width="27" height="31"> WikiQuote Bot for Discord 
-This bot was built for use on the [Discord](https://discord.com/) social platform. Its purpose is to retrieve a random quote from the [WikiQuote](https://en.wikiquote.org/wiki/) site based on user queries. The results are to be returned to the user as in the form of a message, which is sent to the same channel as the user's query. This small project is not affiliated with WikiQuote and was programmed using **Node.js**.
+This bot was built for use on the [Discord](https://discord.com/) social platform. Its purpose is to retrieve a random quote from the [WikiQuote](https://en.wikiquote.org/wiki/) site based on user queries. The results are to be returned to the user in the form of a message, which is sent to the same channel as the user's query. This small project is not affiliated with WikiQuote and was programmed using **Node.js**.
 
 
 #### Contents
@@ -18,7 +18,7 @@ This bot was built for use on the [Discord](https://discord.com/) social platfor
 
 # How to Set Up This Bot
 ## Through *Discord* 
-Using Discord to try out this bot is very straight-forward. All you need is a Discord account and a server that you have permission to invite the bot to.<br><br>
+Using Discord to try out this bot is very straightforward. All you need is a Discord account and a server that you have permission to invite the bot to.<br><br>
 <p align="center">
   <img src=https://user-images.githubusercontent.com/106413749/173713191-87e74101-9fdd-49be-a7dc-2a63aa2fb80d.png width=313 height=410></img>
 </p>
@@ -45,7 +45,7 @@ Please note that in addition to the files provided by this repo, you will have t
 <p align="center">
 <img src=https://user-images.githubusercontent.com/106413749/173716378-d95f769a-ef7a-40ae-9f4c-d96b38ca94f5.png>
 </p><br>
-Finally, "npm install" should be used in the command line in the directory of your local copy of this repo's files to install the packages used for this project. Once this is complete, "node bot.js" can be used to run the bot from the command line. If your bot is still offline after using this command, double check that you followed all of the steps outlined above and in the linked guide. 
+Finally, "npm install" should be used in the command line in the directory of your local copy of this repo's files to install the packages used for this project. Once this is complete, "node bot.js" can be used to run the bot from the command line. If your bot is still offline after using this command, double-check that you followed all of the steps outlined above and in the linked guide. 
 
 
 ---
@@ -90,7 +90,7 @@ At the moment, this bot supports the use of 3 different commands.
       - The query is converted to title case, underscores are used to separate words, and the result is appended to the end of this string: "https://en.wikiquote.org/wiki/"
   - The Request-Promise package is used to retrieve the HTML from that URL
   - The returned HTML is processed using Regular Expressions (Regex) to retrieve all of the quotes from that webpage
-      - This was the most difficult part of the project as WikiQuote doesn't use a clear-cut format for placing quotes on each of its pages. While scraping similar quotation sites such as [BrainyQuote](https://www.brainyquote.com/) would have been much more straight-forward and consistent, I wanted a challenge. After observing different pages across the site, I found that WikiQuote tends to store its quotes after an "h2" HTML tag (titled "Quotes" if the page is for a person and a single letter (A-Z) for pages about topics) in an unordered list (marked by "ul" HTML tags). Quotes are typically found at the first "level" of a nested unordered list (AKA the leftmost bullet point on the page visually). The subsequent nested unordered lists are typically used to provide sources, translations, etc.
+      - This was the most difficult part of the project as WikiQuote doesn't use a clear-cut format for placing quotes on each of its pages. While scraping simpler quotation sites such as [BrainyQuote](https://www.brainyquote.com/) would have been much easier due to their greater consistency, I wanted a challenge. After observing different pages across the site, I found that WikiQuote tends to store its quotes after an "h2" HTML tag (titled "Quotes" if the page is for a person and a single letter (A-Z) for pages about topics) in an unordered list (marked by "ul" HTML tags). Quotes are typically found at the first "level" of a nested unordered list (AKA the leftmost bullet point on the page visually). The subsequent nested unordered lists are typically used to provide sources, translations, etc.
       - In order to extract these quotes, I used a variable titled "ulDepth" to track what level of unordered lists the function's "cursor" is currently scanning as it reads each HTML line individually. When a "ul" opening tag is found, 1 is added to the depth, and when a "/ul" closing tag is found, 1 is subtracted from the depth. Any content found at a ulDepth of 1 will have its HTML tags removed and be added to the list of quotes gathered from that page. However, as previously mentioned, not all pages on the site store quotes this way, so this method will not accurately scrape quotes off of every page (see the [Limitations](#limitations) section of this document).
 ### LRU Cache + Linked Lists -
   - Once quotes are found, this program stores them in an LRU cache. This cache was created using the following classes:
