@@ -116,8 +116,9 @@ Moving forward with this project, there are a few features I'd like to add:
 - Allowing users to receive a daily quote from the source of their choosing
 
 # Packages
-- [request-promise](https://www.npmjs.com/package/request-promise)
-- [discord.js](discord.js.org)
+- [discord.js](discord.js.org) (**v13.7.0**)
+- [dotenv](https://www.npmjs.com/package/dotenv) (**v16.0.1**)
+- [request-promise](https://www.npmjs.com/package/request-promise) (**v4.2.6**)
 
 # References
 - https://beebom.com/how-make-discord-bot/
