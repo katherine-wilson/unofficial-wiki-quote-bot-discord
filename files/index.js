@@ -25,7 +25,7 @@
 
 require('dotenv').config();
 const Discord = require("discord.js");
-const wqSearch = require('./wq_search.js')
+const wqSearch = require('./wq_search.js');
 const searchEngine = new wqSearch.SearchEngine();
 startBot();
 
