@@ -45,7 +45,7 @@ Please note that in addition to the files provided by this repo, you will have t
 <p align="center">
 <img src=https://user-images.githubusercontent.com/106413749/173716378-d95f769a-ef7a-40ae-9f4c-d96b38ca94f5.png>
 </p><br>
-Finally, "npm install" should be used in the command line in the directory of your local copy of this repo's files to install the packages used for this project. Once this is complete, "node bot.js" can be used to run the bot from the command line. If your bot is still offline after using this command, double-check that you followed all of the steps outlined above and in the linked guide. 
+Finally, "npm install" should be used in the command line in the directory of your local copy of this repo's files to install the packages used for this project. Once this is complete, "node index.js" can be used to run the bot from the command line. If your bot is still offline after using this command, double-check that you followed all of the steps outlined above and in the linked guide. 
 
 
 ---
