@@ -108,7 +108,7 @@ At the moment, this bot supports the use of 3 different commands.
 The biggest limiting factor of this small project was WikiQuote's inconsistent format across its open-collaboration platform. Because of this, there was (seemingly) no definitive way to scrape quotes from any page on the site with 100% accuracy. Sometimes sources and translations get mixed in with what's considered a "quote" by this bot as a result. This, unfortunately, limits the [future](#future) of this project as the types of pages not covered by the current version of this bot (ex. movies) tend to have even less consistency than the types of pages that have been. 
 
 # Future
-If I were to pick up this project again in the future, these are a few features I'd like to add: 
+Moving forward with this project, there are a few features I'd like to add: 
 - Giving users the ability to resolve disambiguations (ex. pages like [this](https://en.wikiquote.org/wiki/John_Smith))
 - Allowing users to pick a page from the search results of their query if a page isn't directly found using the URL formation process (rather than just throwing an error)
 - Broadening the "types" of pages this bot can scan (ex. video games, musicals, movies, etc.)
